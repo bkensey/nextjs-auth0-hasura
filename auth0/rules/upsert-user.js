@@ -11,12 +11,12 @@ function upsertUser(user, context, callback) {
     {
       headers: {
         'content-type': 'application/json',
-        'x-hasura-admin-secret': configuration.ADMIN_SECRET
+        'x-hasura-admin-secret': configuration.HASURA_GRAPHQL_ADMIN_SECRET
       },
       url: configuration.HASURA_GRAPHQL_URL,
       body: JSON.stringify(QUERY_BODY)
     },
-    function(error, response, body) {
+    function (error, response, body) {
       if (error) console.log('error', error);
       else console.log(body);
       callback(null, user, context);
